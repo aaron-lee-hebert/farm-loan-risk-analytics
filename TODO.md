@@ -57,7 +57,7 @@ https://www.ncdc.noaa.gov/cdo-web/token
 
 ### 💰 Loan Data (MOCK - REQUIRED)
 
-- [ ] Create synthetic dataset using Python:
+- [x] Create synthetic dataset using Python:
     - loan_id
     - farm_id
     - state
@@ -65,11 +65,11 @@ https://www.ncdc.noaa.gov/cdo-web/token
     - loan_amount
     - interest_rate
     - loan_to_value
-- [ ] Use random distributions:
+- [x] Use random distributions:
     - Loan amounts: 50k–2M
     - Interest rates: 3–10%
     - Crops: corn, wheat, cotton
-- [ ] Save to `/data/raw/loans.csv`
+- [x] Save to `/data/raw/loans.csv`
 
 ---
 
