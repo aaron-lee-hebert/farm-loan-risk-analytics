@@ -3,14 +3,14 @@
 ## 📦 Phase 1: Project Setup
 
 - [x] Create GitHub repository
-- [ ] Initialize project structure:
+- [x] Initialize project structure:
   - `/data`
   - `/etl`
   - `/sql`
   - `/notebooks`
   - `/dashboard`
-- [ ] Create virtual environment
-- [ ] Install dependencies:
+- [x] Create virtual environment
+- [x] Install dependencies:
     - pandas
     - numpy
     - sqlalchemy

@@ -125,13 +125,15 @@ Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Pow
 
 1. Clone the repo
 2. Set up a PostgreSQL database
-3. Install dependencies:
+3. Create virtual environment and install dependencies:
    ```bash
+   py -m venv venv
+   source venv/bin/activate  # or venv\Scripts\Activate on Windows
    pip install -r requirements.txt
    ```
 4. Run ETL pipeline:
    ```bash
-   python eli/main.py
+   py eli/main.py
    ```
 5. Connect BI tool to database
 
