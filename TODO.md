@@ -23,15 +23,15 @@
 ### USDA Crop Data (REQUIRED)
 
 **Option A (Recommended - Quickest):**
-- [ ] Go to: https://quickstats.nass.usda.gov/
-- [ ] Select:
+- [x] Go to: https://quickstats.nass.usda.gov/
+- [x] Select:
     - Program: "SURVEY"
     - Sector: "CROPS"
     - Group: "FIELD CROPS"
     - Commodity: (Corn, Wheat, Cotton)
     - Category: "YIELD"
     - Geography: "STATE"
-- [ ] Download CSV
+- [x] Download CSV
 
 **Option B (API - Optional):**
 - [ ] Sign up for USDA NASS API key:
@@ -43,7 +43,7 @@ https://quickstats.nass.usda.gov/api
 ### 🌦️ Weather Data (REQUIRED)
 
 **Option A (Simple CSV):**
-- [ ] Download sample weather data from:
+- [x] Download sample weather data from:
 https://www.ncdc.noaa.gov/cdo-web/
 
 **Option B (API - Optional):**
