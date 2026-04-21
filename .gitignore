@@ -1,0 +1,4 @@
+# Data
+data/processed/*
+data/raw/loans.csv
+data/raw/weather_data.csv

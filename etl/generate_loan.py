@@ -13,15 +13,13 @@ np.random.seed(42)
 
 NUM_RECORDS = 1000
 
-states = ["TX", "KS", "OK", "NE", "IA"]
+states = ["TX", "KS", "OK"]
 
 # Regional crop bias
 crop_weights_by_state = {
     "TX": {"cotton": 0.5, "corn": 0.3, "wheat": 0.2},
     "KS": {"wheat": 0.6, "corn": 0.3, "cotton": 0.1},
     "OK": {"wheat": 0.5, "corn": 0.3, "cotton": 0.2},
-    "NE": {"corn": 0.7, "wheat": 0.2, "cotton": 0.1},
-    "IA": {"corn": 0.8, "wheat": 0.2, "cotton": 0.0},
 }
 
 # -----------------------------
