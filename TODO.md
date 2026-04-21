@@ -89,20 +89,20 @@
 
 ## 🗄️ Phase 4: Data Warehouse
 
-- [ ] Install SQL Server (Developer or Express)
-- [ ] Install SQL Server Management Studio (SSMS)
-- [ ] Create database:
+- [x] Install SQL Server (Developer or Express)
+- [x] Install SQL Server Management Studio (SSMS)
+- [x] Create database:
   ```sql
   CREATE DATABASE FarmRiskDB;
   ```
-- [ ] Create staging table:
+- [x] Create staging table:
   - staging_loans
-- [ ] Create tables:
+- [x] Create tables:
   - fact_loans
   - dim_crop
   - dim_region
   - dim_time
-- [ ] Load transformed data into SQL Server using Python (SQLAlchemy + pyodbc)
+- [x] Load transformed data into SQL Server using Python (SQLAlchemy + pyodbc)
 
 ---
 
