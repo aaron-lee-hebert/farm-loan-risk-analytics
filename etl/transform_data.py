@@ -193,6 +193,49 @@ if "avg_yield" in merged_df.columns:
     merged_df["yield_risk"] = (merged_df["avg_yield"] < crop_mean).astype(int)
 
 # -----------------------------
+# Normalize features (0–1 scale)
+# -----------------------------
+def min_max(series):
+    return (series - series.min()) / (series.max() - series.min())
+
+# Only normalize if column exists
+if "loan_to_value" in merged_df.columns:
+    merged_df["ltv_norm"] = min_max(merged_df["loan_to_value"])
+
+if "interest_rate" in merged_df.columns:
+    merged_df["rate_norm"] = min_max(merged_df["interest_rate"])
+
+if "avg_yield" in merged_df.columns:
+    # Lower yield = higher risk → invert
+    merged_df["yield_norm"] = 1 - min_max(merged_df["avg_yield"])
+
+if "drought_years" in merged_df.columns and "years_observed" in merged_df.columns:
+    merged_df["drought_ratio"] = merged_df["drought_years"] / merged_df["years_observed"]
+    merged_df["drought_norm"] = min_max(merged_df["drought_ratio"])
+
+# -----------------------------
+# Risk Score Calculation
+# -----------------------------
+merged_df["risk_score"] = (
+    0.40 * merged_df.get("ltv_norm", 0) +
+    0.20 * merged_df.get("rate_norm", 0) +
+    0.20 * merged_df.get("yield_norm", 0) +
+    0.20 * merged_df.get("drought_norm", 0)
+)
+
+merged_df["risk_score"] = (merged_df["risk_score"] * 100).round(2)
+
+def risk_bucket(score):
+    if score < 30:
+        return "Low"
+    elif score < 60:
+        return "Moderate"
+    else:
+        return "High"
+
+merged_df["risk_category"] = merged_df["risk_score"].apply(risk_bucket)
+
+# -----------------------------
 # Final Cleanup
 # -----------------------------
 merged_df = merged_df.drop_duplicates(subset=["loan_id"])
@@ -209,9 +252,16 @@ merged_df.to_csv(output_path, index=False)
 print(f"\nTransformation complete")
 print(f"Output saved to: {output_path}")
 print(f"Final shape: {merged_df.shape}")
+
 print("\nPreview:")
 print(merged_df.head())
+
 print("\nNull counts on enrichment columns:")
 for c in ["avg_yield", "avg_rainfall", "avg_temp", "drought_years", "years_observed"]:
     if c in merged_df.columns:
         print(f"  {c}: {merged_df[c].isna().sum()} / {len(merged_df)}")
+
+print("\nRisk Score Summary:")
+print(merged_df["risk_score"].describe())
+print("\nRisk Category Distribution:")
+print(merged_df["risk_category"].value_counts())
