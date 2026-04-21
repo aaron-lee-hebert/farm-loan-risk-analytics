@@ -14,7 +14,7 @@
     - pandas
     - numpy
     - sqlalchemy
-    - psycopg2
+    - pyodbc
 
 ---
 
@@ -65,10 +65,7 @@ https://www.ncdc.noaa.gov/cdo-web/token
     - loan_amount
     - interest_rate
     - loan_to_value
-- [x] Use random distributions:
-    - Loan amounts: 50k–2M
-    - Interest rates: 3–10%
-    - Crops: corn, wheat, cotton
+- [x] Use realistic distributions
 - [x] Save to `/data/raw/loans.csv`
 
 ---
@@ -93,25 +90,27 @@ https://www.ncdc.noaa.gov/cdo-web/token
 ### 🧮 Feature Engineering
 
 - [ ] Create yield volatility metric
-- [ ] Create weather risk indicator:
-    - Low rainfall = higher risk
-- [ ] Create `risk_score`:
-    Example:
-    ```
-    risk_score = (yield_volatility * 0.4) + (weather_risk * 0.3) + (loan_to_value * 0.3)
-    ```
+- [ ] Create weather risk indicator
+- [ ] Create `risk_score`
+
 ---
 
 ## 🗄️ Phase 4: Data Warehouse
 
-- [ ] Install PostgreSQL locally
-- [ ] Create database: `farm_risk`
+- [ ] Install SQL Server (Developer or Express)
+- [ ] Install SQL Server Management Studio (SSMS)
+- [ ] Create database:
+    ```sql
+    CREATE DATABASE FarmRiskDB;
+    ```
+- [ ] Create staging table:
+    - staging_loans
 - [ ] Create tables:
     - fact_loans
     - dim_crop
     - dim_region
     - dim_time
-- [ ] Load transformed data into tables
+- [ ] Load transformed data into SQL Server using Python (SQLAlchemy + pyodbc)
 
 ---
 
@@ -126,9 +125,7 @@ https://www.ncdc.noaa.gov/cdo-web/token
 
 ## 📈 Phase 6: Dashboard
 
-### Power BI / Tableau
-
-- [ ] Connect to PostgreSQL
+- [ ] Connect Power BI to SQL Server
 - [ ] Build visuals:
     - Bar chart: loan volume by crop
     - Map: regional risk
@@ -166,5 +163,5 @@ https://www.ncdc.noaa.gov/cdo-web/token
 
 - [ ] Add dbt transformations
 - [ ] Add Airflow pipeline
-- [ ] Deploy database to cloud
+- [ ] Deploy to Azure SQL Database
 - [ ] Add commodity price data

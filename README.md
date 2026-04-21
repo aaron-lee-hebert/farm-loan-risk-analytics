@@ -25,7 +25,7 @@ This project answers:
 
 ## 🏗️ Architecture
 
-Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Power BI Dashboard
+Data Sources ➡️ Python ETL Pipeline ➡️ SQL Server Data Warehouse ➡️ Power BI Dashboard
 
 ---
 
@@ -86,7 +86,7 @@ Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Pow
      - Loan risk score
 
 3. Load:
-   - Store in PostgreSQL warehouse
+   - Store in SQL Server warehouse
    - Model into fact/dimension tables
 
 ---
@@ -114,9 +114,9 @@ Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Pow
 ## 🛠️ Tech Stack
 
 - Python (pandas, numpy)
-- PostgreSQL
+- SQL Server
 - SQL
-- Power BI or Tableau
+- Power BI
 - Optional: dbt
 
 ---
@@ -124,18 +124,24 @@ Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Pow
 ## 🚀 Getting Started
 
 1. Clone the repo
-2. Set up a PostgreSQL database
-3. Create virtual environment and install dependencies:
+2. Install SQL Server (Developer or Express) and SQL Server Management Studio (SSMS)
+3. Create database:
+   ```sql
+   CREATE DATABASE FarmRiskDB;
+   ```
+4. Create virtual environment and install dependencies:
    ```bash
    py -m venv venv
-   source venv/bin/activate  # or venv\Scripts\Activate on Windows
+   venv\Scripts\activate
    pip install -r requirements.txt
    ```
-4. Run ETL pipeline:
+5. Run ETL pipline:
    ```bash
-   py eli/main.py
+   py etl/main.py
    ```
-5. Connect BI tool to database
+6. Connect Power BI to SQL Server:
+   - Server: localhost
+   - Database: FarmRiskDB
 
 ---
 
@@ -143,7 +149,7 @@ Data Sources ➡️Python ETL Pipeline ➡️PostgreSQL Data Warehouse ➡️Pow
 - Add commodity pricing data
 - Incorporate real drought indices
 - Automate pipeline scheduling
-- Deploy to cloud (AWS/GCP/Azure)
+- Deploy to Azure
 
 ---
 
