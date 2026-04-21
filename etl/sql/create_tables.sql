@@ -6,7 +6,6 @@ USE FarmRiskDB;
 GO
 
 IF OBJECT_ID('fact_loans', 'U') IS NOT NULL DROP TABLE fact_loans;
-
 CREATE TABLE fact_loans (
     loan_id INT PRIMARY KEY,
     farm_id VARCHAR(100),
@@ -20,7 +19,6 @@ CREATE TABLE fact_loans (
 );
 
 IF OBJECT_ID('staging_loans', 'U') IS NOT NULL DROP TABLE staging_loans;
-
 CREATE TABLE staging_loans (
     loan_id INT,
     farm_id VARCHAR(100),
@@ -30,23 +28,18 @@ CREATE TABLE staging_loans (
     interest_rate DECIMAL(6,4),
     loan_to_value DECIMAL(5,2),
     risk_flag INT,
-
     avg_yield FLOAT,
     avg_rainfall FLOAT,
     avg_temp FLOAT,
     drought_years INT,
     years_observed INT,
-
     weather_risk INT,
     yield_risk INT,
-
-    -- NEW FEATURES
     ltv_norm FLOAT,
     rate_norm FLOAT,
     yield_norm FLOAT,
     drought_ratio FLOAT,
     drought_norm FLOAT,
-
     risk_score FLOAT,
     risk_category VARCHAR(20)
 );
