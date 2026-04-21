@@ -117,8 +117,8 @@
 
 ## 📈 Phase 6: Dashboard
 
-- [ ] Connect Power BI to SQL Server
-- [ ] Build visuals:
+- [x] Connect Power BI to SQL Server
+- [x] Build visuals:
   - Bar chart: loan volume by crop
   - Map: regional risk
   - Table: high-risk loans
