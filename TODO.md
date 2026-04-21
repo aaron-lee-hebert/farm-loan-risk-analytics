@@ -108,7 +108,7 @@
 
 ## 📊 Phase 5: Analytics Layer
 
-- [ ] Write SQL queries:
+- [x] Write SQL queries:
   - Total loan exposure by crop
   - Average risk score by region
   - Top 10 highest risk loans
