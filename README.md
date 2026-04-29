@@ -16,6 +16,13 @@ and business intelligence.
 
 [View Project](./projects/farm-loan-risk-bi/)
 
+### 2. Flow ITAM
+- IT Asset Management system, CLI-first, evolving toward a Web API
+- Clean Architecture in Python with SQLAlchemy Core, Alembic, Pydantic v2, and Click
+- Focus: explicit data access and disciplined layered design
+
+[View Project](./projects/flow-itam/)
+
 ---
 
 ## How to Run a Project
