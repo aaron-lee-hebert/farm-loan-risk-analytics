@@ -1,0 +1,21 @@
+# virtual env
+venv/
+.env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# testing
+.pytest_cache/
+
+# tooling
+.mypy_cache/
+.ruff_cache/
+
+# database
+*.db
+
+# OS
+.DS_Store

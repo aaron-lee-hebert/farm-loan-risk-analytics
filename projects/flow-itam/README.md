@@ -52,7 +52,7 @@ This project follows a layered approach inspired by Clean Architecture, implemen
   Use cases and orchestration logic (services); depends on `domain/` only
 
 * **`infrastructure/`**
-  Data access (PostgreSQL via SQLAlchemy Core), config, external integrations
+  Data access (SQL Server via SQLAlchemy Core + `pyodbc`), config, external integrations
 
 * **`cli/`**
   Initial interface for interacting with the system (Click commands)
@@ -81,8 +81,8 @@ The goal is to keep business logic independent from delivery mechanisms, allowin
 * **Click**
   CLI framework — decorator-based command groups
 
-* **PostgreSQL**
-  Relational database for structured data and reporting
+* **SQL Server**
+  Relational database for structured data and reporting (via `pyodbc` + ODBC Driver 18)
 
 * *(Planned)* **FastAPI**
   For external access and integration; pairs natively with Pydantic models
@@ -124,7 +124,7 @@ Avoid overengineering. Focus on:
 Using SQLAlchemy Core (not the ORM) to better understand:
 
 * SQL queries — you write them, you read them
-* Execution performance via `EXPLAIN ANALYZE`
+* Execution performance via `SET STATISTICS IO, TIME ON` and actual execution plans
 * Data access patterns
 
 ---

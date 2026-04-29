@@ -1,0 +1,24 @@
+[project]
+name = "flow-itam"
+version = "0.1.0"
+description = "IT Asset Management"
+requires-python = ">=3.12"
+dependencies = [
+    "sqlalchemy>=2.0",
+    "alembic",
+    "pydantic>=2.0",
+    "click",
+    "pyodbc"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "src"
