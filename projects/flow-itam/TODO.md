@@ -42,22 +42,22 @@ Focus:
 
 Define core entities as **Pydantic v2 models** in `src/flow_itam/domain/`:
 
-- [ ] `Asset`
+- [x] `Asset`
   - id, name, asset_type, serial_number, purchase_date
 
-- [ ] `User`
+- [x] `User`
   - id, name, email (`EmailStr`)
 
-- [ ] `Assignment`
+- [x] `Assignment`
   - asset_id, user_id, assigned_at, returned_at
 
-- [ ] `Location` (optional)
+- [x] `Location` (optional)
 
-- [ ] `Vendor` (optional)
+- [x] `Vendor` (optional)
 
-- [ ] Use `pydantic.BaseModel` for entities; consider `model_config = ConfigDict(frozen=True)` for value-object semantics
-- [ ] Add field validation (constrained types, required fields, custom validators)
-- [ ] Keep domain models free of DB and HTTP concerns — no SQLAlchemy imports here
+- [x] Use `pydantic.BaseModel` for entities; consider `model_config = ConfigDict(frozen=True)` for value-object semantics
+- [x] Add field validation (constrained types, required fields, custom validators)
+- [x] Keep domain models free of DB and HTTP concerns — no SQLAlchemy imports here
 
 ---
 
