@@ -6,13 +6,13 @@
 
 ## Goal: Scaffold repo + basic ingestion
 
-- [ ] Initialize repo structure
-- [ ] Create virtual environment
-- [ ] Install dependencies (requests, pandas, etc.)
-- [ ] Create `.env` for API keys
-- [ ] Write basic API client
-- [ ] Test API response locally
-- [ ] Save raw JSON to local file
+- [x] Initialize repo structure
+- [x] Create virtual environment
+- [x] Install dependencies (requests, pandas, etc.)
+- [x] Create `.env` for API keys
+- [x] Write basic API client
+- [x] Test API response locally
+- [x] Save raw JSON to local file
 
 ---
 

@@ -1,4 +1,4 @@
-# ✈️ Flight Data Engineering Pipeline
+# ✈️ Flight Data Pipeline
 
 ## 📌 Overview
 
