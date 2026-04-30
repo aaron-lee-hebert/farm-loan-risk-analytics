@@ -1,0 +1,144 @@
+# ✅ Flight Data Pipeline — TODO
+
+---
+
+# 🟢 Phase 1 — Project Setup
+
+## Goal: Scaffold repo + basic ingestion
+
+- [ ] Initialize repo structure
+- [ ] Create virtual environment
+- [ ] Install dependencies (requests, pandas, etc.)
+- [ ] Create `.env` for API keys
+- [ ] Write basic API client
+- [ ] Test API response locally
+- [ ] Save raw JSON to local file
+
+---
+
+# 🟡 Phase 2 — Ingestion Pipeline
+
+## Goal: Production-like ingestion layer
+
+- [ ] Implement pagination handling
+- [ ] Add retry logic (failures/timeouts)
+- [ ] Add logging (success/failure)
+- [ ] Add ingestion timestamp
+- [ ] Write data to Bronze layer (local or cloud)
+- [ ] Parameterize ingestion (date range, etc.)
+
+---
+
+# 🟠 Phase 3 — Cloud Setup
+
+## Goal: Move storage to cloud
+
+- [ ] Create Azure Storage Account
+- [ ] Create containers (bronze/silver/gold)
+- [ ] Connect Python app to Blob Storage
+- [ ] Upload Bronze data to cloud
+- [ ] Validate file structure
+
+---
+
+# 🔵 Phase 4 — Databricks Setup
+
+## Goal: Enable distributed processing
+
+- [ ] Create Databricks workspace
+- [ ] Create cluster
+- [ ] Connect to Blob Storage
+- [ ] Load Bronze data into Spark DataFrame
+
+---
+
+# 🟣 Phase 5 — Bronze → Silver
+
+## Goal: Clean + normalize data
+
+- [ ] Flatten JSON schema
+- [ ] Define structured schema
+- [ ] Handle null/missing values
+- [ ] Deduplicate flights
+- [ ] Write to Silver layer (Delta format)
+
+---
+
+# 🔴 Phase 6 — Silver → Gold
+
+## Goal: Create analytics-ready data
+
+- [ ] Create fact table (flights)
+- [ ] Create dimension tables (airports, time)
+- [ ] Compute metrics:
+  - [ ] Flights per day
+  - [ ] Delay rate
+  - [ ] On-time %
+- [ ] Write Gold tables
+
+---
+
+# 🟤 Phase 7 — Incremental Processing
+
+## Goal: Make pipeline realistic
+
+- [ ] Track last ingestion timestamp
+- [ ] Only ingest new records
+- [ ] Implement Delta MERGE (upsert)
+- [ ] Handle late-arriving data
+
+---
+
+# ⚫ Phase 8 — Data Quality
+
+## Goal: Add reliability
+
+- [ ] Validate schema consistency
+- [ ] Check for duplicates
+- [ ] Check null thresholds
+- [ ] Log data quality issues
+
+---
+
+# ⚪ Phase 9 — Power BI Dashboard
+
+## Goal: Deliver insights
+
+- [ ] Connect Power BI to Gold layer
+- [ ] Build visuals:
+  - [ ] Flights per day
+  - [ ] Delay trends
+  - [ ] Airport performance
+- [ ] Add filters (airline, airport)
+- [ ] Polish dashboard UI
+
+---
+
+# 🟩 Phase 10 — Orchestration
+
+## Goal: Automate pipeline
+
+- [ ] Schedule ingestion (cron / Databricks job)
+- [ ] Automate transformations
+- [ ] Add failure alerts
+
+---
+
+# 🟪 Phase 11 — Polish & Resume Prep
+
+## Goal: Make it job-ready
+
+- [ ] Add architecture diagram to README
+- [ ] Add screenshots of dashboard
+- [ ] Document challenges + solutions
+- [ ] Clean code + comments
+- [ ] Prepare talking points for interviews
+
+---
+
+# 🚀 Stretch Goals
+
+- [ ] Add streaming ingestion
+- [ ] Integrate weather data
+- [ ] Build REST API for querying data
+- [ ] Add CI/CD pipeline
