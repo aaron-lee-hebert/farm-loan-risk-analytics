@@ -20,12 +20,12 @@
 
 ## Goal: Production-like ingestion layer
 
-- [ ] Implement pagination handling
-- [ ] Add retry logic (failures/timeouts)
-- [ ] Add logging (success/failure)
-- [ ] Add ingestion timestamp
-- [ ] Write data to Bronze layer (local or cloud)
-- [ ] Parameterize ingestion (date range, etc.)
+- [x] Implement pagination handling
+- [x] Add retry logic (failures/timeouts)
+- [x] Add logging (success/failure)
+- [x] Add ingestion timestamp
+- [x] Write data to Bronze layer (local or cloud)
+- [x] Parameterize ingestion (date range, etc.)
 
 ---
 

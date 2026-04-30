@@ -2,24 +2,53 @@ import json
 import os
 from datetime import datetime, timezone
 from api_client import fetch_flights
+from config import OUTPUT_DIR
+from logger import logger
 
 
 def main():
-    print("Fetching flight data from OpenSky...")
+    logger.info("Starting ingestion job")
 
-    data = fetch_flights()
+    try:
+        data = fetch_flights()
 
-    os.makedirs("data", exist_ok=True)
+        now = datetime.now(timezone.utc)
+        timestamp = now.strftime("%Y%m%d_%H%M%S")
 
-    timestamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    filename = f"data/raw_flights_{timestamp}.json"
+        partition_path = os.path.join(
+            OUTPUT_DIR,
+            f"yeah={now.year}",
+            f"month={now.month:02}",
+            f"day={now.day:02}"
+        )
 
-    with open(filename, "w") as f:
-        json.dump(data, f, indent=2)
+        os.makedirs(partition_path, exist_ok=True)
 
-    print(f"Saved data to {filename}")
-    print(f"Number of flights: {len(data.get('states', []))}")
+        filename = f"flights_{timestamp}.json"
 
+        output_path = os.path.join(
+            partition_path,
+            filename
+        )
+
+        # Add ingestion metadata
+        wrapped_data = {
+            "ingestion_time": timestamp,
+            "source": "opensky",
+            "data": data
+        }
+
+        with open(output_path, "w") as f:
+            json.dump(wrapped_data, f)
+
+        record_count = len(data.get("states", []))
+
+        logger.info(f"Ingestion successful: {record_count} records saved to {output_path}")
+        print(f"Saved {record_count} records")
+
+    except Exception as e:
+        logger.error(f"Ingestion failed: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     main()
