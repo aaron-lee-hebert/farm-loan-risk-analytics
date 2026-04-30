@@ -33,11 +33,11 @@
 
 ## Goal: Move storage to cloud
 
-- [ ] Create Azure Storage Account
-- [ ] Create containers (bronze/silver/gold)
-- [ ] Connect Python app to Blob Storage
-- [ ] Upload Bronze data to cloud
-- [ ] Validate file structure
+- [x] Create Azure Storage Account
+- [x] Create containers (bronze/silver/gold)
+- [x] Connect Python app to Blob Storage
+- [x] Upload Bronze data to cloud
+- [x] Validate file structure
 
 ---
 

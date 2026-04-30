@@ -1,8 +1,8 @@
 import json
-import os
 from datetime import datetime, timezone
 from api_client import fetch_flights
-from config import OUTPUT_DIR
+from azure_client import AzureClient
+from config import AZURE_CONTAINER_BRONZE
 from logger import logger
 
 
@@ -11,41 +11,25 @@ def main():
 
     try:
         data = fetch_flights()
+        azure = AzureClient()
 
         now = datetime.now(timezone.utc)
         timestamp = now.strftime("%Y%m%d_%H%M%S")
+        blob_path = f"year={now.year}/month={now.month:02}/day={now.day:02}/flights_{timestamp}.json"
 
-        partition_path = os.path.join(
-            OUTPUT_DIR,
-            f"yeah={now.year}",
-            f"month={now.month:02}",
-            f"day={now.day:02}"
-        )
-
-        os.makedirs(partition_path, exist_ok=True)
-
-        filename = f"flights_{timestamp}.json"
-
-        output_path = os.path.join(
-            partition_path,
-            filename
-        )
-
-        # Add ingestion metadata
         wrapped_data = {
             "ingestion_time": timestamp,
             "source": "opensky",
             "data": data
         }
 
-        with open(output_path, "w") as f:
-            json.dump(wrapped_data, f)
+        azure.upload_json(
+            container=AZURE_CONTAINER_BRONZE,
+            file_path=blob_path,
+            data=json.dumps(wrapped_data)
+        )
 
-        record_count = len(data.get("states", []))
-
-        logger.info(f"Ingestion successful: {record_count} records saved to {output_path}")
-        print(f"Saved {record_count} records")
-
+        print(f"Uploaded to Azure: {blob_path}")
     except Exception as e:
         logger.error(f"Ingestion failed: {str(e)}")
         raise
